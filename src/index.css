@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Comic Sans MS", "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #fef9ef 0%, #e9f6ff 100%);
+  color: #1f3559;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
