@@ -1,16 +1,102 @@
-# React + Vite
+# Kids Learning Arcade
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modular, frontend-only React arcade designed for children to practice focus, timing, and motor skills through mini games.
 
-Currently, two official plugins are available:
+This project is built with a plug-and-play game architecture: new games are added through a registry, while the core engine remains unchanged.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Concept
+- Dashboard with available games
+- Infinite play (no levels, no progression lock)
+- Centralized score engine
+- Dynamic game loading by route (`/game/:id`)
 
-## React Compiler
+## Tech Stack
+- React (functional components + hooks)
+- Vite
+- React Router
+- Plain CSS / inline styles (no heavy UI libraries)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Key Architecture Decisions
+- `GameEngine` is the single source of truth for score.
+- Every game receives only one scoring API: `onScoreUpdate(points)`.
+- Games do not manage global score state.
+- Game discovery is registry-driven via `gameList.js`.
+- Adding a game does not require core engine changes.
 
-## Expanding the ESLint configuration
+## Project Structure
+```text
+src/
+  core/
+    GameEngine.jsx
+    ScoreManager.js
+  games/
+    gameList.js
+    ClickTheStar/
+      index.jsx
+    DragBall/
+      index.jsx
+  pages/
+    Dashboard.jsx
+    GamePage.jsx
+  ui/
+    Button.jsx
+    Card.jsx
+    Container.jsx
+  App.jsx
+  main.jsx
+  index.css
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Current Games
+1. Click The Star
+- Star appears at random positions inside bounds
+- Click to score +1
+- Motion/feedback effects for interaction
+
+2. Drag Ball
+- Drag a basketball into a basket target
+- Successful drop scores +5
+- Ball respawns at a random valid position
+
+## Routing
+- `/` -> Dashboard
+- `/game/:id` -> Game page (resolved from registry)
+
+## Getting Started
+```bash
+npm install
+npm run dev
+```
+
+Build for production:
+```bash
+npm run build
+```
+
+Preview build:
+```bash
+npm run preview
+```
+
+## How To Add a New Game (Plugin Style)
+1. Create a new game component under `src/games/<GameName>/index.jsx`.
+2. Accept `onScoreUpdate(points)` as a prop.
+3. Trigger score changes only through `onScoreUpdate`.
+4. Register the game in `src/games/gameList.js`:
+
+```js
+{
+  id: "your-game-id",
+  name: "Your Game",
+  description: "Short description",
+  component: YourGameComponent
+}
+```
+
+That is all. No change is needed in `GameEngine`, routes, or dashboard logic.
+
+## Why This Project Matters
+- Demonstrates clean React architecture with separation of concerns
+- Shows extensible plugin-like design in frontend applications
+- Built for maintainability and fast feature iteration
+- Portfolio-ready example of scalable component organization
