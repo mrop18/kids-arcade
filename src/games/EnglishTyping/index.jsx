@@ -197,22 +197,6 @@ function EnglishTyping({ onScoreUpdate }) {
           animation: isWrong ? "typingWrongShake 180ms ease" : "none",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            top: "16px",
-            right: "18px",
-            background: "#ffffffd9",
-            border: "2px solid #d2e3ff",
-            borderRadius: "999px",
-            padding: "0.35rem 0.8rem",
-            color: "#375880",
-            fontSize: "1rem",
-            fontWeight: 800,
-          }}
-        >
-          Score: {score}
-        </div>
 
         <div
           key={letterIndex}
