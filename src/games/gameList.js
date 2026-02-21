@@ -1,5 +1,6 @@
 import ClickTheStar from "./ClickTheStar";
 import DragBall from "./DragBall";
+import EnglishTyping from "./EnglishTyping";
 
 // Registry is the only file touched when adding a new game plugin.
 const gameList = [
@@ -14,6 +15,12 @@ const gameList = [
     name: "Drag Ball",
     description: "Drag the ball and drop it inside the box for five points.",
     component: DragBall,
+  },
+  {
+    id: "english-typing",
+    name: "English Typing",
+    description: "Type the shown letters in order to keep scoring forever.",
+    component: EnglishTyping,
   },
 ];
 
