@@ -84,7 +84,7 @@ function ClickTheStar({ onScoreUpdate }) {
             background: "transparent",
             fontSize: `${Math.floor(currentSize * 0.75)}px`,
             lineHeight: 1,
-            cursor: "pointer",
+            cursor: "url('/cursor-big-pointer.png') 16 16, auto",
             transform: isPopped ? "scale(1.18)" : "scale(1)",
             transition:
               "left 320ms ease, top 320ms ease, width 180ms ease, height 180ms ease, font-size 180ms ease, transform 140ms ease",

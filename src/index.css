@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  cursor: url("/cursor-big.png") 16 16, auto;
 }
 
 body {

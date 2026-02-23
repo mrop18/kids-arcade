@@ -10,7 +10,7 @@ function Button({ children, variant = "primary", style, ...props }) {
         padding: "0.65rem 1rem",
         fontSize: "1rem",
         fontWeight: 700,
-        cursor: "pointer",
+        cursor: "url('/cursor-big-pointer.png') 16 16, auto",
         background: isSecondary ? "#dcecff" : "#ffb347",
         color: isSecondary ? "#1f3559" : "#3b2d00",
         transition: "transform 150ms ease, box-shadow 150ms ease",

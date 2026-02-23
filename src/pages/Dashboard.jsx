@@ -17,11 +17,9 @@ function Dashboard() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(2, minmax(min(100%, 260px), 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
           gap: "1rem",
           width: "100%",
-          // maxWidth: "760px",
-          // margin: "0 auto",
         }}
       >
         {gameList.map((game) => (

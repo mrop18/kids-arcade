@@ -111,7 +111,7 @@ function DragBall({ onScoreUpdate }) {
             fontSize: "48px",
             lineHeight: 1,
             userSelect: "none",
-            cursor: isDragging ? "grabbing" : "grab",
+            cursor: isDragging ? "url('/cursor-big.png') 16 16, auto" : "url('/cursor-big-pointer.png') 16 16, auto",
             opacity: isDragging ? 0 : 1,
             transition: "left 260ms ease, top 260ms ease, opacity 120ms ease",
           }}
